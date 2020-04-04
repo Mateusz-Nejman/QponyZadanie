@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Maximum value in serie
+{% endblock %}
+
+{% block body %}
+	<style>
+		.wrapper {
+			width: 100%;
+			height: 100%;
+			padding: 50px;
+		}
+
+		.container {
+			width: 50%;
+			min-height: 600px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin: auto;
+			padding: 20px;
+			font: 18px / 1.5 sans-serif;
+		}
+		.formContainer {
+			margin: auto;
+		}
+		.formInput {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		.formLabel {
+			font-weight: 600;
+		}
+
+		.formSubmit {
+			background-color: #2196F3; /* Blue 500 */
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+		}
+
+        .formMaximum {
+            font-size: 20px;
+            font-weight: 600;
+        }
+	</style>
+
+	<div class="wrapper">
+		<div class="container">
+			<h1>Maximum value in serie</h1>
+
+			<div class="formContainer">{{ form_start(form) }}
+				{{ form_errors(form) }}
+
+				{{ form_label(form.serieCount, null, { 'label_attr' : { 'class' : 'formLabel' } }) }}
+				{{ form_widget(form.serieCount, { 'attr' : { 'class' : 'formInput' } }) }}
+
+				{{ form_row(form.submit, { 'attr' : { 'class' : 'formSubmit' }}) }}
+				{{ form_end(form) }}</div>
+                
+                <p style="formMaximum">{{ maximum }}</p>
+
+		</div>
+	</div>
+{% endblock %}
